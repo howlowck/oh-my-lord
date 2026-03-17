@@ -1,4 +1,4 @@
-# Oh My Lord (of the Rings)
+# Oh My LOTR (Lord of the Rings)
 
 The AI agent harness for GitHub Copilot CLI — multi-agent orchestration with 11 specialized agents, 3 skills, and 1 MCP server.
 
@@ -9,12 +9,12 @@ The AI agent harness for GitHub Copilot CLI — multi-agent orchestration with 1
 ### Option 1 (Recommended) - VSCode
 
 1. Enable [Agent Plugins](https://code.visualstudio.com/docs/copilot/customization/agent-plugins) in VSCode (`chat.plugins.enabled` tro true)
-2. Add `howlowck/awesome-copilot` to marketplace urls like so, optionally include the default marketplace repos.
+2. Add `oh-my-lotr` to marketplace urls like so, optionally include the default marketplace repos.
 ```json
 // settings.json
 "chat.plugins.enabled": true,
 "chat.plugins.marketplaces": [
-    "howlowck/awesome-copilot",
+    "howlowck/oh-my-lotr",
     // "github/awesome-copilot" (default)
     // "github/copilot-plugins" (default)
 ]
@@ -27,12 +27,12 @@ The AI agent harness for GitHub Copilot CLI — multi-agent orchestration with 1
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/howlowck/oh-my-lord.git
+   git clone https://github.com/howlowck/oh-my-lotr.git
    ```
 
 2. Install as a Copilot CLI plugin:
    ```bash
-   copilot plugin install ./oh-my-lord
+   copilot plugin install ./oh-my-lotr
    ```
 
 3. Use `copilot` normally — all agents and skills are automatically available.
@@ -326,12 +326,12 @@ Each agent in Oh My Lord is named after a Lord of the Rings character whose qual
 ## Architecture
 
 ```
-oh-my-lord/
+oh-my-lotr/
   plugin.json          # Plugin manifest
   .mcp.json            # MCP server configuration
   hooks.json           # Hook definitions
   agents/              # 11 agent definitions (.agent.md)
-  skills/              # 5 skill definitions (*/SKILL.md)
+  skills/              # 3 skill definitions (*/SKILL.md)
 ```
 
 ### Agent Hierarchy
