@@ -10,6 +10,13 @@ export default defineConfig({
 			title: "Oh My LOTR",
 			description:
 				"The AI agent harness for GitHub Copilot — multi-agent orchestration with specialized agents, skills, and MCP servers.",
+			customCss: [
+				"./src/styles/theme.css",
+				"./src/styles/animations.css",
+			],
+			components: {
+				Hero: "./src/components/Hero.astro",
+			},
 			social: [
 				{
 					icon: "github",

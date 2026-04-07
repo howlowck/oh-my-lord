@@ -1,0 +1,190 @@
+/* ============================================================
+   Oh My LOTR — Lord of the Rings Theme
+   Color palette inspired by Middle-earth: 
+   deep blacks, warm golds, aged parchment, elvish greens
+   ============================================================ */
+
+/* — Google Fonts — */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+
+/* ————————————————————————————
+   DARK THEME (default)
+   ———————————————————————————— */
+:root {
+	/* Accent: warm gold — the color of the One Ring */
+	--sl-color-accent-low: hsl(38, 50%, 14%);
+	--sl-color-accent: hsl(38, 85%, 55%);
+	--sl-color-accent-high: hsl(38, 90%, 80%);
+
+	/* Grays: warm-tinted, like aged stone */
+	--sl-color-gray-1: hsl(35, 12%, 90%);
+	--sl-color-gray-2: hsl(35, 8%, 72%);
+	--sl-color-gray-3: hsl(35, 6%, 50%);
+	--sl-color-gray-4: hsl(35, 6%, 32%);
+	--sl-color-gray-5: hsl(30, 10%, 18%);
+	--sl-color-gray-6: hsl(28, 14%, 12%);
+	--sl-color-black: hsl(25, 18%, 7%);
+	--sl-color-white: hsl(38, 30%, 96%);
+
+	/* Semantic overrides */
+	--sl-color-text: var(--sl-color-gray-1);
+	--sl-color-text-accent: var(--sl-color-accent-high);
+
+	/* Typography */
+	--sl-font: "Crimson Pro", Georgia, "Times New Roman", serif;
+	--sl-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+		monospace;
+
+	/* Sizes — slightly larger for the serif */
+	--sl-text-base: 1.05rem;
+
+	/* Ring glow for reuse */
+	--lotr-glow: 0 0 20px hsla(38, 85%, 55%, 0.3);
+	--lotr-glow-strong: 0 0 40px hsla(38, 85%, 55%, 0.5),
+		0 0 80px hsla(38, 85%, 55%, 0.15);
+	--lotr-text-glow: 0 0 12px hsla(38, 85%, 55%, 0.6);
+}
+
+/* ————————————————————————————
+   LIGHT THEME
+   ———————————————————————————— */
+:root[data-theme="light"] {
+	--sl-color-accent-low: hsl(38, 60%, 88%);
+	--sl-color-accent: hsl(38, 70%, 40%);
+	--sl-color-accent-high: hsl(38, 80%, 18%);
+
+	--sl-color-gray-1: hsl(30, 14%, 16%);
+	--sl-color-gray-2: hsl(30, 10%, 30%);
+	--sl-color-gray-3: hsl(30, 6%, 50%);
+	--sl-color-gray-4: hsl(30, 6%, 68%);
+	--sl-color-gray-5: hsl(35, 12%, 86%);
+	--sl-color-gray-6: hsl(38, 18%, 92%);
+	--sl-color-black: hsl(38, 20%, 96%);
+
+	--lotr-glow: 0 0 15px hsla(38, 70%, 40%, 0.2);
+	--lotr-glow-strong: 0 0 30px hsla(38, 70%, 40%, 0.3);
+	--lotr-text-glow: 0 0 8px hsla(38, 70%, 40%, 0.4);
+}
+
+/* ————————————————————————————
+   HEADINGS — Cinzel (Tolkien feel)
+   ———————————————————————————— */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Cinzel", "Palatino Linotype", serif !important;
+	letter-spacing: 0.03em;
+}
+
+/* Page hero title */
+.hero h1,
+[data-page-title] {
+	text-shadow: var(--lotr-text-glow);
+}
+
+/* ————————————————————————————
+   SIDEBAR — Elvish feel
+   ———————————————————————————— */
+nav.sidebar a[aria-current="page"],
+nav.sidebar a[aria-current="true"] {
+	border-inline-start-color: var(--sl-color-accent);
+	box-shadow: inset 4px 0 8px -4px hsla(38, 85%, 55%, 0.4);
+}
+
+/* ————————————————————————————
+   LINKS — Warm gold glow on hover
+   ———————————————————————————— */
+:root a:not([class]) {
+	transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+:root a:not([class]):hover {
+	text-shadow: var(--lotr-text-glow);
+}
+
+/* ————————————————————————————
+   CODE BLOCKS — Aged parchment feel
+   ———————————————————————————— */
+.expressive-code pre {
+	border: 1px solid hsla(38, 40%, 30%, 0.3) !important;
+}
+
+/* ————————————————————————————
+   TABLES — Stone-carved borders
+   ———————————————————————————— */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+th {
+	font-family: "Cinzel", serif !important;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
+
+tr:hover td {
+	background: hsla(38, 50%, 50%, 0.06);
+	transition: background 0.3s ease;
+}
+
+/* ————————————————————————————
+   HORIZONTAL RULES — Ornamental
+   ———————————————————————————— */
+hr {
+	border: none;
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		var(--sl-color-accent) 20%,
+		var(--sl-color-accent-high) 50%,
+		var(--sl-color-accent) 80%,
+		transparent 100%
+	);
+	opacity: 0.4;
+	margin: 2.5rem 0;
+}
+
+/* ————————————————————————————
+   BLOCKQUOTES — Elvish whisper
+   ———————————————————————————— */
+blockquote {
+	border-inline-start-color: var(--sl-color-accent) !important;
+	background: hsla(38, 40%, 50%, 0.05);
+	font-style: italic;
+	position: relative;
+}
+
+blockquote em {
+	color: var(--sl-color-accent-high);
+}
+
+/* ————————————————————————————
+   SCROLLBAR — Subtle gold
+   ———————————————————————————— */
+::-webkit-scrollbar {
+	width: 8px;
+}
+::-webkit-scrollbar-track {
+	background: var(--sl-color-black);
+}
+::-webkit-scrollbar-thumb {
+	background: hsla(38, 40%, 40%, 0.4);
+	border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: hsla(38, 50%, 50%, 0.6);
+}
+
+/* ————————————————————————————
+   SELECTION — Gold highlight
+   ———————————————————————————— */
+::selection {
+	background: hsla(38, 80%, 55%, 0.3);
+	color: var(--sl-color-white);
+}

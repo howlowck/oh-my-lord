@@ -1,0 +1,142 @@
+/* ============================================================
+   Oh My LOTR — Animations
+   Subtle, impactful. No gratuitous motion.
+   ============================================================ */
+
+/* ————————————————————————————
+   STAGGERED FADE-IN on page load
+   Content elements reveal like a scroll unfurling
+   ———————————————————————————— */
+@keyframes lotr-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Main content area — staggered children */
+.sl-markdown-content > * {
+	animation: lotr-fade-up 0.5s ease-out both;
+}
+
+.sl-markdown-content > *:nth-child(1) { animation-delay: 0.05s; }
+.sl-markdown-content > *:nth-child(2) { animation-delay: 0.1s; }
+.sl-markdown-content > *:nth-child(3) { animation-delay: 0.15s; }
+.sl-markdown-content > *:nth-child(4) { animation-delay: 0.2s; }
+.sl-markdown-content > *:nth-child(5) { animation-delay: 0.25s; }
+.sl-markdown-content > *:nth-child(n + 6) { animation-delay: 0.3s; }
+
+/* ————————————————————————————
+   RING PULSE — Subtle ambient glow
+   Used on accent elements (buttons, active nav)
+   ———————————————————————————— */
+@keyframes ring-pulse {
+	0%,
+	100% {
+		box-shadow: 0 0 8px hsla(38, 85%, 55%, 0.15);
+	}
+	50% {
+		box-shadow: 0 0 20px hsla(38, 85%, 55%, 0.3);
+	}
+}
+
+/* Primary action buttons get the ring glow */
+.hero a[class*="primary"],
+a.sl-flex:first-of-type {
+	animation: ring-pulse 3s ease-in-out infinite;
+}
+
+/* ————————————————————————————
+   EMBER GLOW — For headings on hover
+   Like firelight flickering on carved runes
+   ———————————————————————————— */
+@keyframes ember-glow {
+	0%,
+	100% {
+		text-shadow: 0 0 8px hsla(38, 85%, 55%, 0.2);
+	}
+	50% {
+		text-shadow: 0 0 16px hsla(38, 85%, 55%, 0.5),
+			0 0 32px hsla(38, 60%, 40%, 0.15);
+	}
+}
+
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+	transition: text-shadow 0.4s ease;
+}
+
+.sl-markdown-content h2:hover,
+.sl-markdown-content h3:hover {
+	animation: ember-glow 2s ease-in-out infinite;
+}
+
+/* ————————————————————————————
+   CARD / IMAGE HOVER — Depth reveal
+   ———————————————————————————— */
+.sl-markdown-content img {
+	transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+	border-radius: 8px;
+	box-shadow: 0 4px 20px hsla(25, 20%, 5%, 0.5);
+}
+
+.sl-markdown-content img:hover {
+	transform: translateY(-2px) scale(1.005);
+	box-shadow: var(--lotr-glow-strong), 0 8px 32px hsla(25, 20%, 5%, 0.6);
+}
+
+/* ————————————————————————————
+   SIDEBAR LINK TRANSITIONS
+   ———————————————————————————— */
+nav.sidebar a {
+	transition: color 0.2s ease, border-color 0.3s ease,
+		background 0.2s ease, padding-inline-start 0.3s ease;
+}
+
+nav.sidebar a:hover {
+	padding-inline-start: 0.3rem;
+}
+
+/* ————————————————————————————
+   SPARKLE DIVIDER — Decorative gold dust
+   Applied to <hr> elements between sections
+   ———————————————————————————— */
+@keyframes shimmer {
+	0% {
+		background-position: -200% center;
+	}
+	100% {
+		background-position: 200% center;
+	}
+}
+
+hr {
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		hsla(38, 85%, 55%, 0.1) 10%,
+		hsla(38, 85%, 55%, 0.5) 50%,
+		hsla(38, 85%, 55%, 0.1) 90%,
+		transparent 100%
+	) !important;
+	background-size: 200% 100%;
+	animation: shimmer 4s linear infinite;
+	opacity: 0.6 !important;
+}
+
+/* ————————————————————————————
+   REDUCED MOTION — Respect preferences
+   ———————————————————————————— */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
